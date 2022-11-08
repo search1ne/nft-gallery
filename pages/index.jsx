@@ -5,7 +5,7 @@ const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_API;
 const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v2/${apiKey}`;
 
 const Home = () => {
-  const [wallet, setWalletAddress] = useState("");
+  const [wallet, setWalletAddress] = useState("searchone.eth");
   const [collection, setCollectionAddress] = useState("");
   const [NFTs, setNFTs] = useState([]);
   const [fetchForCollection, setFetchForCollection] = useState(false);
