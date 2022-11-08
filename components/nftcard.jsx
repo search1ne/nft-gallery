@@ -21,7 +21,11 @@ export const NFTCard = ({ nft }) => {
 
             </div>
             <hr></hr>
-
+            <div className="flex-grow mt-2">
+                <p className="text-gray-600">Description: 
+                <br />
+                {nft.description}</p>
+            </div>
         </div>
 
     </div>
