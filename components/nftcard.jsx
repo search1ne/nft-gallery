@@ -17,8 +17,9 @@ export const NFTCard = ({ nft }) => {
             <h2 className="text-xl text-gray-800">{nft.title}</h2>
             <p className="text-gray-600">NFT Token ID: {shortAddress(nft.id.tokenId)}</p>
             <p className='flex items-center gap-2'>Click Icon to Copy: 
-            <EtherscanIcon nft = { nft } /> 
-            {shortAddress(nft.contract.address)}</p>
+            <EtherscanIcon nft = { nft } />
+            <a target='_blank' href={`https://etherscan.io/address/${nft.contract.address}`} className='flex items-center gap-2' rel="noreferrer">
+                {shortAddress(nft.contract.address)}</a></p>
         </div>
         <hr></hr>
         <div className="flex-grow mt-2">
@@ -27,7 +28,7 @@ export const NFTCard = ({ nft }) => {
             {nft.description}</p>
 
         </div>
-    </div>
+        </div>
     )
 }
 

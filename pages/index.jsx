@@ -1,12 +1,11 @@
 import { NFTCard } from '/components/nftcard';
-import { Button } from '/components/button'
 import { useState } from 'react';
 
 const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_API;
 const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v2/${apiKey}`;
 
 const Home = () => {
-  const [wallet, setWalletAddress] = useState("stringstory.eth");
+  const [wallet, setWalletAddress] = useState("");
   const [collection, setCollectionAddress] = useState("");
   const [NFTs, setNFTs] = useState([]);
   const [fetchForCollection, setFetchForCollection] = useState(false);
@@ -61,8 +60,8 @@ const Home = () => {
     return (
       <div>
 
-        <div className="flex flex-col w-full justify-center items-center gap-y-5">
-          <h1>My NFT Gallery</h1>
+        <div className="flex flex-col w-full justify-center items-center gap-y-5 mt-20 mb-20">
+          <h1 className="font-bold text-xl">My NFT Gallery</h1>
         </div>
 
         <div className="flex flex-col w-full justify-center items-center gap-y-2">
@@ -88,7 +87,7 @@ const Home = () => {
         </input>
         <label 
             for="collection"
-            className="left-0 text-gray-600 cursor-text peer-focus:text-xs peer-focus:-top-4 peer-focus:text-purple-600 transition-all">NFT Collection (optional)
+            className="my-4 left-0 text-gray-600 cursor-text peer-focus:text-xs peer-focus:-top-4 peer-focus:text-purple-600 transition-all">NFT Collection (optional)
         </label>
         <label 
           for ="checkbox">
@@ -102,7 +101,7 @@ const Home = () => {
         </label>
         
         <button 
-          className={"disabled:bg-slate-50 text-white bg-purple-400 px-4 mt-3 rounded-md w-1/6"} 
+          className={"disabled:bg-slate-50 text-white bg-purple-400 px-4 mt-3 rounded-md w-1/6 my-5"} 
           onClick={ () => {
                   if (fetchForCollection) {
                   fetchNFTsForCollection()
@@ -110,12 +109,12 @@ const Home = () => {
             }
           }>LFL!</button>
 
-      </div>
+      </div> 
 
       <div className='flex justify-center mb-4'>
       <svg onClick={handleChangePage} className='w-1/6' width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" /></svg>
       </div>
-
+        
       <div className='flex flex-wrap gap-y-12 mt-4 w-5/6 gap-x-2 justify-center'>
         {
           NFTs.length > 0 && NFTs.map(nft => {
@@ -131,3 +130,4 @@ const Home = () => {
 }
 
 export default Home
+
